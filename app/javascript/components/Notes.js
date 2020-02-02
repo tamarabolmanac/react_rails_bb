@@ -1,4 +1,5 @@
 import React from 'react'
+import Note from './Note'
 import axios from 'axios'
 
 class Notes extends React.Component {
@@ -26,6 +27,16 @@ class Notes extends React.Component {
 		this.getNotes();
 	}
 
+	handleDelete(id){
+		console.log(id)
+		axios
+		.delete(`api/v1/notes/${id}`)
+		.then(res => {
+	    this.setState({notes: this.state.notes.filter(x=> x.id!=id)})
+    })
+	}
+
+
 	render() {
 		const notes = this.state.notes;
 		const isLoading = this.state.isLoading;
@@ -38,11 +49,7 @@ class Notes extends React.Component {
             notes.map(note => {
               const { id, title, content } = note;
               return (
-                <div key={id}>
-                  <h2>{title}</h2>
-                  <p>{content}</p>
-                  <hr />
-                </div>
+                <Note key={id} title={title} content={content} handleDelete={this.handleDelete.bind(this, id)} />
               );
             })
           ) : (

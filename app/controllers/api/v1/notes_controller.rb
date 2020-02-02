@@ -9,9 +9,13 @@ class Api::V1::NotesController < Api::V1::BaseController
 	end
 
 	def update
-		item = Item.find(params["id"])
+		item = Note.find(params["id"])
 	  item.update_attributes(note_params)
 	  respond_with item, json: item
+	end
+
+	def destroy
+		Note.destroy(params[:id])
 	end
 
 	private
