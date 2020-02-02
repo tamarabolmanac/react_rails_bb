@@ -15,7 +15,7 @@ class NoteForm extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
+    alert('A name was submitted: ' + this.state.title);
     event.preventDefault()
     axios.post(`api/v1/notes`, { title: this.state.title, content: this.state.content })
       .then(res => {

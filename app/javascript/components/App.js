@@ -1,8 +1,8 @@
 import React from 'react'
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import ReactDOM from 'react-dom'
-import { Route, Switch, Link } from 'react-router-dom'
 import Home from './Home'
-import About from './About'
+import Notes from './Notes'
 import Contact from './Contact'
 
 class App extends React.Component {
@@ -15,7 +15,7 @@ class App extends React.Component {
 		              <Link to="/">Home</Link>
 		            </li>
 		            <li>
-		              <Link to="/about">About</Link>
+		              <Link to="/notes">Notes</Link>
 		            </li>
 		            <li>
 		              <Link to="/contact">Contact</Link>
@@ -24,7 +24,7 @@ class App extends React.Component {
 		        </nav>
 				<Switch>
 					<Route exact path="/" component={Home} />
-					<Route exact path="/about" component={About} />
+					<Route exact path="/notes" component={Notes} />
 					<Route exact path="/contact" component={Contact} />
 				</Switch>
 			</div>

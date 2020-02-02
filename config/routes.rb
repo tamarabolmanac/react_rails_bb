@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   root 'events#index'
 
-  #match '*path', to: 'pages#index', via: :all
+  
 
   namespace :api do
       namespace :v1 do
@@ -10,5 +10,5 @@ Rails.application.routes.draw do
       end
   end
   
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  match '*path', to: 'events#index', via: :all
 end
