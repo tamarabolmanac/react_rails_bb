@@ -2,6 +2,7 @@ import React from 'react'
 import Note from './Note'
 import axios from 'axios'
 
+
 class Notes extends React.Component {
 
 	state = {
@@ -28,7 +29,7 @@ class Notes extends React.Component {
 	}
 
 	handleDelete(id){
-		console.log(id)
+		
 		axios
 		.delete(`api/v1/notes/${id}`)
 		.then(res => {
